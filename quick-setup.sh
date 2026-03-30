@@ -65,7 +65,7 @@ EOF"
     echo "Static IP configured successfully!"
 }
 
-done(){
+check_done(){
     input "You done? (y/n): " -n 1 -r
     if [[ $REPLY =~ ^[Yy]$ ]]; then
         return 1
@@ -101,7 +101,7 @@ else
     fi
 fi
 
-done
+check_done
 
 input "Do you want to setup untattended-upgrades? (y/n): " -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]; then
@@ -114,7 +114,7 @@ else
     echo "Skipping."
 fi
 
-done
+check_done
 
 input "Do you want to install docker? (y/n): " -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]; then
